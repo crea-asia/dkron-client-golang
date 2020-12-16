@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Name for the job. Use only lower case letters (unicode), digits, underscore and dash. | 
+**Name** | **string** | Name for the job. | 
 **Displayname** | Pointer to **string** | Nice name for the job. Optional. | [optional] 
 **Schedule** | **string** | Cron expression for the job. | 
 **Timezone** | Pointer to **string** | Timezone where the job will be executed. By default and when field is set to empty string, the job will run in local time. | [optional] 

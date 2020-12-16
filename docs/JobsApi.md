@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**CreateOrUpdateJob**](JobsApi.md#CreateOrUpdateJob) | **Post** /jobs | 
 [**DeleteJob**](JobsApi.md#DeleteJob) | **Delete** /jobs/{job_name} | 
 [**GetJobs**](JobsApi.md#GetJobs) | **Get** /jobs | 
-[**Restore**](JobsApi.md#Restore) | **Post** /restore | 
 [**RunJob**](JobsApi.md#RunJob) | **Post** /jobs/{job_name} | 
 [**ShowJobByName**](JobsApi.md#ShowJobByName) | **Get** /jobs/{job_name} | 
 [**ToggleJob**](JobsApi.md#ToggleJob) | **Post** /jobs/{job_name}/toggle | 
@@ -211,72 +210,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## Restore
-
-> []string Restore(ctx).File(file).Execute()
-
-
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    file := os.NewFile(1234, "some_file") // *os.File | Json file that needs to be restored.
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.JobsApi.Restore(context.Background()).File(file).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `JobsApi.Restore``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `Restore`: []string
-    fmt.Fprintf(os.Stdout, "Response from `JobsApi.Restore`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiRestoreRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | ***os.File** | Json file that needs to be restored. | 
-
-### Return type
-
-**[]string**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/x-www-form-urlencoded
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
