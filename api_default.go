@@ -42,7 +42,6 @@ func (a *DefaultApiService) Busy(ctx _context.Context) ([]Execution, *_nethttp.R
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/busy"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -85,16 +84,6 @@ func (a *DefaultApiService) Busy(ctx _context.Context) ([]Execution, *_nethttp.R
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []Execution
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -126,7 +115,6 @@ func (a *DefaultApiService) GetIsLeader(ctx _context.Context) (*_nethttp.Respons
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/isleader"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -193,7 +181,6 @@ func (a *DefaultApiService) GetLeader(ctx _context.Context) (Member, *_nethttp.R
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/leader"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -235,16 +222,6 @@ func (a *DefaultApiService) GetLeader(ctx _context.Context) (Member, *_nethttp.R
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v Member
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -279,7 +256,6 @@ func (a *DefaultApiService) Leave(ctx _context.Context) ([]Member, *_nethttp.Res
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/leave"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -321,16 +297,6 @@ func (a *DefaultApiService) Leave(ctx _context.Context) ([]Member, *_nethttp.Res
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []Member
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -365,7 +331,6 @@ func (a *DefaultApiService) Status(ctx _context.Context) (Status, *_nethttp.Resp
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -407,16 +372,6 @@ func (a *DefaultApiService) Status(ctx _context.Context) (Status, *_nethttp.Resp
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v Status
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

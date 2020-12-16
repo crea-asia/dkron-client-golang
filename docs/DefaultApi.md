@@ -17,6 +17,7 @@ Method | HTTP request | Description
 > []Execution Busy(ctx, )
 
 
+
 Returns the running executions. 
 
 ### Required Parameters
@@ -44,6 +45,7 @@ No authorization required
 ## GetIsLeader
 
 > GetIsLeader(ctx, )
+
 
 
 Check if node is a leader or follower. 
@@ -75,6 +77,7 @@ No authorization required
 > Member GetLeader(ctx, )
 
 
+
 List leader of cluster. 
 
 ### Required Parameters
@@ -104,6 +107,7 @@ No authorization required
 > []Member Leave(ctx, )
 
 
+
 Force the node to leave the cluster. 
 
 ### Required Parameters
@@ -131,6 +135,7 @@ No authorization required
 ## Status
 
 > Status Status(ctx, )
+
 
 
 Gets `Status` object. 

@@ -19,6 +19,7 @@ Method | HTTP request | Description
 > Job CreateOrUpdateJob(ctx, body, optional)
 
 
+
 Create or updates a new job. 
 
 ### Required Parameters
@@ -63,6 +64,7 @@ No authorization required
 > Job DeleteJob(ctx, jobName)
 
 
+
 Delete a job. 
 
 ### Required Parameters
@@ -94,6 +96,7 @@ No authorization required
 ## GetJobs
 
 > []Job GetJobs(ctx, optional)
+
 
 
 List jobs. 
@@ -138,6 +141,7 @@ No authorization required
 > []string Restore(ctx, uNKNOWNBASETYPE)
 
 
+
 Restore jobs from json file. 
 
 ### Required Parameters
@@ -169,6 +173,7 @@ No authorization required
 ## RunJob
 
 > Job RunJob(ctx, jobName)
+
 
 
 Executes a job. 
@@ -204,6 +209,7 @@ No authorization required
 > Job ShowJobByName(ctx, jobName)
 
 
+
 Show a job. 
 
 ### Required Parameters
@@ -235,6 +241,7 @@ No authorization required
 ## ToggleJob
 
 > Job ToggleJob(ctx, jobName)
+
 
 
 Toggle a job. 

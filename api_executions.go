@@ -14,7 +14,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"fmt"
 	"strings"
 )
 
@@ -45,7 +44,7 @@ func (a *ExecutionsApiService) ListExecutionsByJob(ctx _context.Context, jobName
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/jobs/{job_name}/executions"
-	localVarPath = strings.Replace(localVarPath, "{"+"job_name"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", jobName)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_name"+"}", _neturl.QueryEscape(parameterToString(jobName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -88,16 +87,6 @@ func (a *ExecutionsApiService) ListExecutionsByJob(ctx _context.Context, jobName
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []Execution
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

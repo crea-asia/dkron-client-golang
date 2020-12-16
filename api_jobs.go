@@ -14,7 +14,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"fmt"
 	"strings"
 	"github.com/antihax/optional"
 	"reflect"
@@ -54,7 +53,6 @@ func (a *JobsApiService) CreateOrUpdateJob(ctx _context.Context, body Job, local
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/jobs"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -102,16 +100,6 @@ func (a *JobsApiService) CreateOrUpdateJob(ctx _context.Context, body Job, local
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 201 {
-			var v Job
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -146,7 +134,7 @@ func (a *JobsApiService) DeleteJob(ctx _context.Context, jobName string) (Job, *
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/jobs/{job_name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"job_name"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", jobName)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_name"+"}", _neturl.QueryEscape(parameterToString(jobName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -190,16 +178,6 @@ func (a *JobsApiService) DeleteJob(ctx _context.Context, jobName string) (Job, *
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v Job
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -240,7 +218,6 @@ func (a *JobsApiService) GetJobs(ctx _context.Context, localVarOptionals *GetJob
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/jobs"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -294,16 +271,6 @@ func (a *JobsApiService) GetJobs(ctx _context.Context, localVarOptionals *GetJob
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []Job
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -338,7 +305,6 @@ func (a *JobsApiService) Restore(ctx _context.Context, uNKNOWNBASETYPE UNKNOWN_B
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/restore"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -383,16 +349,6 @@ func (a *JobsApiService) Restore(ctx _context.Context, uNKNOWNBASETYPE UNKNOWN_B
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -427,7 +383,7 @@ func (a *JobsApiService) RunJob(ctx _context.Context, jobName string) (Job, *_ne
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/jobs/{job_name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"job_name"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", jobName)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_name"+"}", _neturl.QueryEscape(parameterToString(jobName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -470,16 +426,6 @@ func (a *JobsApiService) RunJob(ctx _context.Context, jobName string) (Job, *_ne
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 202 {
-			var v Job
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -515,7 +461,7 @@ func (a *JobsApiService) ShowJobByName(ctx _context.Context, jobName string) (Jo
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/jobs/{job_name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"job_name"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", jobName)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_name"+"}", _neturl.QueryEscape(parameterToString(jobName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -558,16 +504,6 @@ func (a *JobsApiService) ShowJobByName(ctx _context.Context, jobName string) (Jo
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v Job
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -603,7 +539,7 @@ func (a *JobsApiService) ToggleJob(ctx _context.Context, jobName string) (Job, *
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/jobs/{job_name}/toggle"
-	localVarPath = strings.Replace(localVarPath, "{"+"job_name"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", jobName)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_name"+"}", _neturl.QueryEscape(parameterToString(jobName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -646,16 +582,6 @@ func (a *JobsApiService) ToggleJob(ctx _context.Context, jobName string) (Job, *
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v Job
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

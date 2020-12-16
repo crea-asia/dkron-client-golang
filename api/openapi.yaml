@@ -17,7 +17,7 @@ paths:
         Gets `Status` object.
       operationId: status
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -41,7 +41,7 @@ paths:
           type: array
         style: form
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -71,7 +71,7 @@ paths:
         description: Updated job object
         required: true
       responses:
-        201:
+        "201":
           content:
             application/json:
               schema:
@@ -93,7 +93,7 @@ paths:
         schema:
           type: string
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -113,7 +113,7 @@ paths:
         schema:
           type: string
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -133,7 +133,7 @@ paths:
         schema:
           type: string
       responses:
-        202:
+        "202":
           content:
             application/json:
               schema:
@@ -154,7 +154,7 @@ paths:
         schema:
           type: string
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -180,7 +180,7 @@ paths:
               - file
         required: true
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -196,7 +196,7 @@ paths:
         List members.
       operationId: getMember
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -212,7 +212,7 @@ paths:
         List leader of cluster.
       operationId: getLeader
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -226,10 +226,10 @@ paths:
         Check if node is a leader or follower.
       operationId: getIsLeader
       responses:
-        200:
+        "200":
           content: {}
           description: Node is a leader
-        404:
+        "404":
           content: {}
           description: Node is a follower
       tags:
@@ -240,7 +240,7 @@ paths:
         Force the node to leave the cluster.
       operationId: leave
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -263,7 +263,7 @@ paths:
         schema:
           type: string
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -279,7 +279,7 @@ paths:
         Returns the running executions.
       operationId: busy
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
