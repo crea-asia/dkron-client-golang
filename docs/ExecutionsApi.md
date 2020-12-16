@@ -10,19 +10,55 @@ Method | HTTP request | Description
 
 ## ListExecutionsByJob
 
-> []Execution ListExecutionsByJob(ctx, jobName)
+> []Execution ListExecutionsByJob(ctx, jobName).Execute()
 
 
 
-List executions. 
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    jobName := "jobName_example" // string | The job that owns the executions to be fetched.
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ExecutionsApi.ListExecutionsByJob(context.Background(), jobName).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ExecutionsApi.ListExecutionsByJob``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListExecutionsByJob`: []Execution
+    fmt.Fprintf(os.Stdout, "Response from `ExecutionsApi.ListExecutionsByJob`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**jobName** | **string**| The job that owns the executions to be fetched. | 
+**jobName** | **string** | The job that owns the executions to be fetched. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListExecutionsByJobRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
 

@@ -14,15 +14,46 @@ Method | HTTP request | Description
 
 ## Busy
 
-> []Execution Busy(ctx, )
+> []Execution Busy(ctx).Execute()
 
 
 
-Returns the running executions. 
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.Busy(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Busy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `Busy`: []Execution
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.Busy`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusyRequest struct via the builder pattern
+
 
 ### Return type
 
@@ -44,15 +75,44 @@ No authorization required
 
 ## GetIsLeader
 
-> GetIsLeader(ctx, )
+> GetIsLeader(ctx).Execute()
 
 
 
-Check if node is a leader or follower. 
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.GetIsLeader(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetIsLeader``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
 
 This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetIsLeaderRequest struct via the builder pattern
+
 
 ### Return type
 
@@ -74,15 +134,46 @@ No authorization required
 
 ## GetLeader
 
-> Member GetLeader(ctx, )
+> Member GetLeader(ctx).Execute()
 
 
 
-List leader of cluster. 
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.GetLeader(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetLeader``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetLeader`: Member
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetLeader`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetLeaderRequest struct via the builder pattern
+
 
 ### Return type
 
@@ -104,15 +195,46 @@ No authorization required
 
 ## Leave
 
-> []Member Leave(ctx, )
+> []Member Leave(ctx).Execute()
 
 
 
-Force the node to leave the cluster. 
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.Leave(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Leave``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `Leave`: []Member
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.Leave`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLeaveRequest struct via the builder pattern
+
 
 ### Return type
 
@@ -134,15 +256,46 @@ No authorization required
 
 ## Status
 
-> Status Status(ctx, )
+> Status Status(ctx).Execute()
 
 
 
-Gets `Status` object. 
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.Status(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Status``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `Status`: Status
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.Status`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiStatusRequest struct via the builder pattern
+
 
 ### Return type
 

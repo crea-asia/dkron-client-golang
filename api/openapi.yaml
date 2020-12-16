@@ -169,7 +169,7 @@ paths:
       operationId: restore
       requestBody:
         content:
-          application/json:
+          application/x-www-form-urlencoded:
             schema:
               properties:
                 file:
